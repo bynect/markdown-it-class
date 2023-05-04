@@ -42,6 +42,6 @@ function setTokenClasses(tokens, md) {
 module.exports = function markdownitTagClass(md, mapping = {}) {
   md.mapping = mapping;
   md.core.ruler.push('markdownit-tag-class', (state) => {
-    setTokenClasses(state.tokens, md);
+    setTokenClasses(state.tokens, state.md);
   });
 };

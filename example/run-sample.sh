@@ -1,5 +1,5 @@
 #!/bin/bash
 
 echo '{ "private": true }' > package.json
-npm i markdown-it markdown-it-attrs markdown-it-class --save
+npm i markdown-it @bynect/markdown-it-class --save
 node sample.js

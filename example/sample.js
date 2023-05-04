@@ -1,6 +1,5 @@
 const MarkdownIt = require('markdown-it');
-const attrs = require('markdown-it-attrs');
-const markdownItClass = require('markdown-it-class');
+const markdownItClass = require('@bynect/markdown-it-class');
 
 const mdText = `# Colors and Cords\n
 
@@ -20,3 +19,19 @@ const md = MarkdownIt().use(markdownItClass, {
 });
 
 console.log(md.render(mdText));
+
+md.mapping = {
+  p: "color:red;",
+  h1: "text-align:left",
+};
+
+console.log(md.render(`
+# Hello world
+
+This is a simple test
+
+
+This too
+
+Yes bro
+`));
