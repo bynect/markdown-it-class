@@ -2,10 +2,10 @@
  * Takes the markdown-it tokens and assigns classes to each token
  *
  * @param tokens Tokens injected by the markdown-it plugin
- * @param mapping Tag to class mapping
+ * @param state Markdown-it state
  */
-function setTokenClasses(tokens, md) {
-  const mapping = md.mapping;
+function setTokenClasses(tokens, state) {
+  const mapping = state.md.mapping ? state.md.mapping : {};
   tokens.forEach((token) => {
     /**
      * `token.nesting` is a number referring to the nature of the tag.
@@ -34,7 +34,7 @@ function setTokenClasses(tokens, md) {
 
     // If the tag has any nested children, assign classes to those also
     if (token.children) {
-      setTokenClasses(token.children, mapping);
+      setTokenClasses(token.children, state);
     }
   });
 }
@@ -42,6 +42,6 @@ function setTokenClasses(tokens, md) {
 module.exports = function markdownitTagClass(md, mapping = {}) {
   md.mapping = mapping;
   md.core.ruler.push('markdownit-tag-class', (state) => {
-    setTokenClasses(state.tokens, state.md);
+    setTokenClasses(state.tokens, state);
   });
 };

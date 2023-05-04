@@ -1,6 +1,6 @@
 {
   "name": "@bynect/markdown-it-class",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Plugin for markdown-it to allow adding classes to HTML tags.",
   "keywords": [
     "markdown-it",
