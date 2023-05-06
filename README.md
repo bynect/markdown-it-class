@@ -7,16 +7,17 @@
 You can install it using yarn or npm
 
 ```shell
-npm install --save-dev markdown-it-class
+npm install --save-dev @bynect/markdown-it-class
 ```
 
 ## Usage
 
 All you have to do is register the plugin and pass the tag to class mapping.
+You can also change the mappings dinamically since they are stored in `MarkdownIt.mapping`
 
 ```javascript
 const MarkdownIt = require('markdown-it')
-const markdownItClass = require('markdown-it-class')
+const markdownItClass = require('@bynect/markdown-it-class')
 
 // Setup the markdown renderer
 const md = MarkdownIt()
